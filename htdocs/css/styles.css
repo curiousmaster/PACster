@@ -1,0 +1,127 @@
+/* css/styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px; /* Increased top padding for better spacing */
+    max-width: 600px;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+h3 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; /* Center the elements horizontally */
+}
+
+label {
+    align-self: flex-start; /* Align labels to the start */
+    margin-left: 5%; /* Add slight left margin for labels */
+    font-weight: bold;
+}
+
+select, textarea {
+    width: 80%; /* Ensure equal space on both sides */
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+select:focus, textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;  /* Allow only vertical resizing */
+    height: 120px;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+.form-group input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px; /* Adjusted padding for better appearance */
+    border-radius: 4px; /* Restored original button style */
+    font-size: 1rem;
+    cursor: pointer;
+    width: 80%; /* User added width: 80%; */
+    margin-top: 20px;  /* Space above the button */
+    margin-bottom: 20px;  /* Space below the button */
+    transition: background-color 0.3s;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.form-group input[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+#resultsDiv {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 0.9rem;
+    color: #333;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Media Query for Responsive Layout */
+@media (max-width: 768px) {
+    .container {
+        max-width: 90%;
+        padding: 20px;
+    }
+    select, textarea, .form-group input[type="submit"] {
+        width: 100%; /* Ensure full width on small screens */
+    }
+    label {
+        margin-left: 0; /* Remove left margin on small screens */
+    }
+}
+
+/* Hide the PAC file path */
+#idFilePath {
+    display: none;
+}
