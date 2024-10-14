@@ -1,3 +1,5 @@
+![alt text](https://github.com/curiousmaster/PACster/blob/main/htdocs/admin/images/pacster.png?raw=true)
+
 # PACster
 
 PACster is a web-based tool for testing Proxy Auto-Config (PAC) files. It allows users to select multiple PAC files, test URLs against these files, and view the routing results. The tool provides a user-friendly interface and supports various functionalities, including downloading test results as CSV files.
