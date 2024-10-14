@@ -1,14 +1,14 @@
 <?php
-define('COMPANY_NAME','ACME INC.');
+define('COMPANY_NAME','<CHANGEME>'); // Company branding
 
 // Initial Configuration for PAC File Tester
-$baseURL = '<URL_TO_PACFILES>';
+$baseURL = '<CHANGEME>'; // URL to pacfiles
 
 // Path to the SQLite3 database file
-define('DB_PATH', '<PATH_TO_USERS>/users.db');
+define('DB_PATH', '<CHANGEME>/users.db'); // Full path to users.db
 
 // Base path for PAC files
-define('BASE_PATH', '<BASE_FILEPATH_TO_PACFILES>'); // Add this line to define the base path
+define('BASE_PATH', '<CHANGEME>'); // Full directory path to pac files
 
 // Function to connect to the SQLite3 database
 function connectDB() {
