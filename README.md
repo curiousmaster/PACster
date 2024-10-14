@@ -22,11 +22,11 @@ PACster is a web-based tool for testing Proxy Auto-Config (PAC) files. It allows
    cd PACster
    ```
 
-3. Configure your server environment to serve PHP files. Files are located under ~/admin.
+3. Edit your server environment to serve PHP files.
 
 4. Place the project files in the appropriate directory on your server.
 
-5. Ensure that the server has access to the necessary PAC files and that the `BASE_PATH` is correctly set in `config.php`.
+5. Ensure that the server has access to the necessary PAC files and that the `BASE_PATH` is correctly set in `admin/config.php`.
 
 ## Usage
 
