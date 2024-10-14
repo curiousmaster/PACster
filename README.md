@@ -1,2 +1,2 @@
-## PACTESTER
-This is a simple script to test pacfiles.
+## PACster
+This is a webui to test pacfiles.
