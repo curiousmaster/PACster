@@ -1,0 +1,679 @@
+/* --------------------------------------- */
+/* Reset Styles */
+/* --------------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%; /* Ensure the body and html take up full height of the viewport */
+}
+
+/* --------------------------------------- */
+/* Body Styles */
+/* --------------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #005FA5; /* Background color */
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Enable flexbox to arrange header, content, and footer */
+    justify-content: space-between; /* Ensure the content stays between header and footer */
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* ---------- Header ---------- */
+header {
+    background-color: #003F7A;
+    padding: 15px 0;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar h2 {
+    margin: 0;
+}
+
+.navbar nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar nav ul li {
+    display: inline;
+}
+
+.navbar nav ul li a {
+    color: white; /* Header text color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 20px;
+    background-color: #004F95;
+    border-radius: 5px;
+}
+
+.navbar nav ul li a:hover {
+    background-color: #0056b3;
+}
+
+/* ---------- Footer ---------- */
+footer {
+    background-color: #003F7A;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+/* ---------- Main Content ---------- */
+.content {
+    flex-grow: 1;
+    padding: 60px 20px; /* Adding padding to avoid header overlap */
+    margin-bottom: 60px; /* Adding space for the footer */
+    /* max-width: 2200px; /* Maximum width for larger screens */
+    width: 80%; /* Set content to 80% of the screen width */
+    margin: 60px auto; /* Center content and avoid overlap with header and footer */
+}
+
+/* ---------- Admin Page Container ---------- */
+.admin-content {
+    flex-grow: 1;
+    padding: 60px 20px; /* Adding padding to avoid header overlap */
+    margin-bottom: 60px; /* Adding space for the footer */
+    max-width: 2200px; /* Maximum width for larger screens */
+    width: 80%; /* Set content to 80% of the screen width */
+    margin: 60px auto; /* Center content and avoid overlap with header and footer */
+}
+
+.admin-container {
+    background-color: #fff; /* White background */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+    width: 80%; /* Set admin container to 80% of its parent (content) */
+    max-width: none; /* Remove maximum width restriction */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 40px auto; /* Centering the container */
+}
+
+/* ---------- Login Page ---------- */
+.login-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.login-container h2 {
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.login-container .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.login-container .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.login-container .form-group input[type="text"],
+.login-container .form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.login-container .login-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.login-container .login-btn:hover {
+    background-color: #45a049;
+}
+
+/* ---------- Add User Page Styles ---------- */
+.container {
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+    flex: 1;
+    width: 80%; /* Set container to 80% of screen width */
+    max-width: 2200px; /* Maximum width for large screens */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin: 40px auto;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start; /* Align elements to the left */
+}
+
+label {
+    font-weight: bold;
+    color: #4a4a4a;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Submit Button Styles */
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%; /* Full width button */
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* ---------- PAC File Tester ---------- */
+.wrapper {
+    display: flex;
+    gap: 20px; /* Space between the two containers */
+    width: 100%;
+    max-width: 2200px; /* Maximum width for larger screens */
+    flex-wrap: wrap; /* Allows containers to wrap on smaller screens */
+    height: 100%;
+}
+
+.wrapper .container {
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px; /* Padding inside each container */
+    flex: 1; /* Equal width for both containers */
+    min-width: 300px; /* Minimum width to prevent shrinking too much */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-height: 80vh; /* Ensure container does not exceed viewport height */
+    overflow: hidden; /* Hide overflow to manage scroll within specific areas */
+}
+
+/* Make the second container (Loaded PAC File) wider */
+.wrapper .container:nth-child(2) {
+    flex: 2; /* Make it twice as wide as the first container */
+}
+
+/* Headings */
+h3, h4 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    text-align: center;
+    color: #4a4a4a;
+    margin-bottom: 30px;
+}
+
+h4 {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+/* Forms */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center; /* Center the elements horizontally */
+}
+
+label {
+    align-self: flex-start; /* Align labels to the start */
+    margin-left: 0%; /* Add slight left margin for labels */
+    font-weight: bold;
+}
+
+/* Select and Textarea */
+select, textarea {
+    width: 100%; /* Use full width of the container */
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+select:focus, textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;  /* Allow only vertical resizing */
+    height: calc(100vh-250px);
+    white-space: pre; /* Prevent line wrapping */
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+/* Adjust the textarea for PAC Content */
+#pacContentDiv {
+    width: 100%; /* Full width of the container */
+    height: calc(100% - 80px); /* Adjust height, leaving space for buttons */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+    background-color: #e8f0fe; /* Light background for readability */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    white-space: pre; /* Prevent line wrapping */
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace; /* Monospaced font for code */
+    flex-grow: 1; /* Allow the PAC content to grow and fill the container */
+}
+
+
+/* ---------- Table Styles ---------- */
+.table-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    overflow-x: auto; /* Ensure table is scrollable on smaller screens */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden; /* Ensures border-radius affects all cells */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+table thead {
+    background-color: #005FA5;
+    color: white;
+}
+
+/* Set header text color to white and ensure correct layout */
+table th {
+    text-decoration: none; /* Prevent any text decoration on header cells */
+    color: white; /* Set header text color to white */
+    width: 150px; /* Adjust width as needed to leave space for arrows */
+    position: relative; /* Allow positioning for arrows */
+    padding: 12px; /* Padding to make the header cells taller */
+    text-align: left; /* Center text in header cells */
+}
+
+/* Set header link styles */
+table th a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Set header text color to white */
+}
+
+table th a:hover,
+table th a:focus {
+    text-decoration: none; /* Ensure no underline on hover */
+    color: white; /* Maintain white text color on hover */
+}
+
+/* Additional Rule: Prevent any text decoration on th elements */
+table th {
+    text-decoration: none; /* Prevent any text decoration on header cells */
+    color: white; /* Set header text color to white */
+    padding: 10px 10px 10px 10px;
+}
+
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+table td {
+    padding: 10px;
+}
+
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Submit and Cancel Button Styles */
+.submit-btn,
+.cancel-btn {
+    display: inline-block;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 48%; /* Adjust width to fit side by side with Cancel button */
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+.cancel-btn {
+    background-color: #ccc;
+    color: #333;
+    text-decoration: none; /* Remove underline */
+    text-align: center; /* Align text in the center */
+    display: inline-block;
+}
+
+.cancel-btn:hover {
+    background-color: #aaa;
+}
+
+/* Alert Messages */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Action Buttons (Edit and Delete) */
+.action-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #0056b3;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+}
+
+.delete-btn {
+    background-color: #FF4136;
+}
+
+.delete-btn:hover {
+    background-color: #e62e24;
+}
+
+/* Disabled delete button for initial admin (id=1) */
+.delete-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Button Group Styles */
+.button-group {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+.action-btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    flex: 1; /* Makes buttons equal in width */
+    transition: background-color 0.3s;
+}
+
+.action-btn:hover {
+    background-color: #0056b3;
+}
+
+.edit-btn {
+    background-color: #4CAF50;
+}
+
+.edit-btn:hover {
+    background-color: #45a049;
+}
+
+.delete-btn {
+    background-color: #FF4136;
+}
+
+.delete-btn:hover {
+    background-color: #e62e24;
+}
+
+/* Sortable Header Styles */
+.sortable-header {
+    color: white; /* Text color for header */
+    text-decoration: none; /* Remove underline */
+}
+
+.sortable-header::after {
+    content: ' ';
+    display: inline-block;
+    margin-left: 5px; /* Space between text and arrow */
+}
+
+/* Up Arrow for ascending order */
+.sortable-header[order='asc']::after {
+    content: '▲'; /* Up arrow */
+    font-size: 0.8rem; /* Adjust size */
+}
+
+/* Down Arrow for descending order */
+.sortable-header[order='desc']::after {
+    content: '▼'; /* Down arrow */
+    font-size: 0.8rem; /* Adjust size */
+}
+
+/* Optional: Add hover effect */
+.sortable-header:hover {
+    text-decoration: none; /* Ensure no underline on hover for sortable header */
+}
+
+/* ---------- Last Commit Info Styles ---------- */
+.last-commit-info {
+    margin: 20px 0; /* Space above and below the section */
+    padding: 15px; /* Padding inside the info box */
+    background-color: #f9f9f9; /* Light background for readability */
+    border: 1px solid #ddd; /* Border around the info box */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size for the text */
+    color: #333; /* Default text color */
+}
+
+.last-commit-info table {
+    width: 100%; /* Make the table take full width */
+    border-collapse: collapse; /* Remove space between table cells */
+}
+
+.last-commit-info th, .last-commit-info td {
+    padding: 10px; /* Padding inside table cells */
+    border: 1px solid #ddd; /* Border for table cells */
+}
+
+/* Set the text color for headers and data to black */
+.last-commit-info th {
+    text-align: left; /* Align header text to the left */
+    background-color: #e0e0e0; /* Slightly darker background for headers */
+    font-weight: bold; /* Bold text for headers */
+    color: black; /* Ensure header text color is black */
+    width: 50px;
+}
+
+.last-commit-info td {
+    color: black; /* Ensure data text color is black */
+}
+
+/* Additional rule to remove default styling */
+.last-commit-info td, .last-commit-info th {
+    text-decoration: none; /* Prevent underline or other default styles */
+}
+
+.commit-info-header {
+    text-align: left; /* Align header text to the left */
+    background-color: #e0e0e0; /* Background color for headers */
+    font-weight: bold; /* Bold text for headers */
+    color: black; /* Set text color to black */
+}
+
+/* ---------- Scrollable Results Box ---------- */
+/* Add CSS for the results box */
+.results-box {
+    width: 100%; /* Full width */
+    height: calc(100vh - 350px); /* Set a maximum height for the box */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ddd; /* Border for the box */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the box */
+    background-color: #f9f9f9; /* Light background for readability */
+}
+
+/* Add CSS for results table */
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.results-table th, .results-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.results-table th {
+    background-color: #005FA5;
+    color: white; /* Header text color */
+}
+
+.results-table tbody tr:hover {
+    background-color: #f1f1f1; /* Highlight on hover */
+}
+
+
+/* ---------- Last Commit Info Styles ---------- */
+.last-commit-info {
+    margin: 20px 0; /* Space above and below the section */
+    padding: 15px; /* Padding inside the info box */
+    background-color: #f9f9f9; /* Light background for readability */
+    border: 1px solid #ddd; /* Border around the info box */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size for the text */
+    color: #333; /* Default text color */
+}
+
+.last-commit-info table {
+    width: 100%; /* Make the table take full width */
+    border-collapse: collapse; /* Remove space between table cells */
+}
+
+.last-commit-info th, .last-commit-info td {
+    padding: 10px; /* Padding inside table cells */
+    border: 1px solid #ddd; /* Border for table cells */
+}
+
+/* Set the text color for headers and data to black */
+.last-commit-info th {
+    text-align: left; /* Align header text to the left */
+    background-color: #e0e0e0; /* Slightly darker background for headers */
+    font-weight: bold; /* Bold text for headers */
+    color: black; /* Ensure header text color is black */
+}
+
+.last-commit-info td {
+    color: black; /* Ensure data text color is black */
+}
+
+/* Additional rule to remove default styling */
+.last-commit-info td, .last-commit-info th {
+    text-decoration: none; /* Prevent underline or other default styles */
+}
