@@ -65,7 +65,7 @@ require_once 'header.php';
     // Clear the results div
     function initResults() {
         const resultsDiv = document.getElementById("resultsDiv");
-        let str = "<h4>Test Results</h4><table class='results-table'><thead><tr><th>PAC File</th><th>URL</th><th>Host</th><th>Route</th></tr></thead><tbody></tbody>"; // Reset the results
+        let str = "<table class='results-table'><thead><tr><th>PAC File</th><th>URL</th><th>Host</th><th>Route</th></tr></thead><tbody></tbody>"; // Reset the results
         resultsDiv.innerHTML = str;
     }
 </script>
@@ -74,11 +74,10 @@ require_once 'header.php';
     <div class="wrapper">
         <!-- First Container: PAC File Selection and Testing -->
         <div class="container" style="display: flex; flex-direction: column; height: 100%;">
-            <h3>PAC File Tester</h3>
+            <h4>Test</h4>
 
             <form name="loadFileForm" onsubmit="return false;" method="post">
                 <div class="form-group">
-                    <label for="idSFilePath">Select PAC Files</label>
                     <select name="sFilePath" id="idSFilePath" multiple onchange="loadFile()">
                         <option value="" disabled>Select PAC files</option>
                         <option value="" disabled>────────────────────────────────────────────────────────────────────────</option>
@@ -118,6 +117,7 @@ require_once 'header.php';
 
         <!-- Results Container -->
         <div class="container" style="display: flex; flex-direction: column; height: 100%;">
+            <h4>Results</h4>
             <div id="resultsDiv" class="results-box"></div>
             <script>initResults()</script>
             <!-- Button to download results as CSV -->
@@ -203,7 +203,7 @@ function getLastCommitInfo(filePath) {
 function testURL() {
     let resultsDiv = document.getElementById("resultsDiv");
 
-    var tabdef = "<h4>Test Results</h4>"; // Title for results
+    var tabdef = ""; // Title for results
     tabdef += "<table class='results-table'><thead><tr><th>PAC File</th><th>URL</th><th>Host</th><th>Route</th></tr></thead><tbody>"; // Table headers
 
     // Clear previous results

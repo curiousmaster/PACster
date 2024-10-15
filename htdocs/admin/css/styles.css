@@ -16,7 +16,7 @@ html, body {
 /* --------------------------------------- */
 body {
     font-family: Arial, sans-serif;
-    background-color: #005FA5; /* Background color */
+    background-color: #05112E; /* Background color */
     color: #333;
     display: flex;
     flex-direction: column; /* Enable flexbox to arrange header, content, and footer */
@@ -104,7 +104,7 @@ footer {
 }
 
 .admin-container {
-    background-color: white; /* White background */
+    background-color: #ffffffd0; /* White background */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 30px 20px;
     width: 80%; /* Set admin container to 80% of its parent (content) */
@@ -118,7 +118,8 @@ footer {
 
 /* ---------- Login Page ---------- */
 .login-container {
-    background-color: rgba(255, 255, 255, 0.5);
+    xx_background-color: rgba(255, 255, 255, 0.5);
+    background-color: #55d8ff;
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -154,7 +155,7 @@ footer {
 }
 
 .login-container .login-btn {
-    background-color: #4CAF50;
+    background-color: #485595;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -166,12 +167,12 @@ footer {
 }
 
 .login-container .login-btn:hover {
-    background-color: #45a049;
+    background-color: #5865A5;
 }
 
 /* ---------- Add User Page Styles ---------- */
 .container {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 1);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 30px 20px;
     flex: 1;
@@ -223,7 +224,7 @@ select:focus {
 
 /* Submit Button Styles */
 .submit-btn {
-    background-color: #4CAF50;
+    background-color: #2060A7;
     color: white;
     border: none;
     padding: 12px 20px;
@@ -235,7 +236,7 @@ select:focus {
 }
 
 .submit-btn:hover {
-    background-color: #45a049;
+    background-color: #3070B7;
 }
 
 /* ---------- PAC File Tester ---------- */
@@ -336,6 +337,7 @@ textarea {
 
 /* ---------- Table Styles ---------- */
 .table-container {
+    background-color: #ffffff;
     width: 100%;
     max-width: 1200px;
     margin: 40px auto;
@@ -348,7 +350,6 @@ table {
     border-radius: 8px;
     overflow: hidden; /* Ensures border-radius affects all cells */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
 }
 
 table thead {
@@ -411,20 +412,21 @@ table tbody tr:last-child td {
 .submit-btn,
 .cancel-btn {
     display: inline-block;
-    background-color: #4CAF50;
+    background-color: #2060A7;
     color: white;
     border: none;
     padding: 12px 20px;
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
-    width: 48%; /* Adjust width to fit side by side with Cancel button */
+    width: 200px; /* Adjust width to fit side by side with Cancel button */
     text-align: center;
     transition: background-color 0.3s;
+    text-decoration: none;
 }
 
 .submit-btn:hover {
-    background-color: #45a049;
+    background-color: #3070B7;
 }
 
 .cancel-btn {
@@ -476,19 +478,11 @@ table tbody tr:last-child td {
 }
 
 .edit-btn {
-    background-color: #4CAF50;
+    background-color: #1E57B6;
 }
 
 .edit-btn:hover {
-    background-color: #45a049;
-}
-
-.delete-btn {
-    background-color: #FF4136;
-}
-
-.delete-btn:hover {
-    background-color: #e62e24;
+    background-color: #2E67C6;
 }
 
 /* Disabled delete button for initial admin (id=1) */
@@ -504,7 +498,7 @@ table tbody tr:last-child td {
 }
 
 .action-btn {
-    background-color: #007BFF;
+    background-color: #2060A7;
     color: white;
     border: none;
     padding: 8px 15px;
@@ -516,15 +510,7 @@ table tbody tr:last-child td {
 }
 
 .action-btn:hover {
-    background-color: #0056b3;
-}
-
-.edit-btn {
-    background-color: #4CAF50;
-}
-
-.edit-btn:hover {
-    background-color: #45a049;
+    background-color: #3070B7;
 }
 
 .delete-btn {
@@ -534,6 +520,7 @@ table tbody tr:last-child td {
 .delete-btn:hover {
     background-color: #e62e24;
 }
+
 
 /* Sortable Header Styles */
 .sortable-header {
