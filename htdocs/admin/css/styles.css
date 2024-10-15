@@ -22,6 +22,8 @@ body {
     flex-direction: column; /* Enable flexbox to arrange header, content, and footer */
     justify-content: space-between; /* Ensure the content stays between header and footer */
     min-height: 100vh; /* Full viewport height */
+    background-image: url('../images/pacster_bg.png'); /* Background image */
+    background-size: cover; /* Cover the entire background */
 }
 
 /* ---------- Header ---------- */
@@ -102,7 +104,7 @@ footer {
 }
 
 .admin-container {
-    background-color: #fff; /* White background */
+    background-color: white; /* White background */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 30px 20px;
     width: 80%; /* Set admin container to 80% of its parent (content) */
@@ -116,7 +118,7 @@ footer {
 
 /* ---------- Login Page ---------- */
 .login-container {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.5);
     padding: 40px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -169,7 +171,7 @@ footer {
 
 /* ---------- Add User Page Styles ---------- */
 .container {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 30px 20px;
     flex: 1;
@@ -247,7 +249,7 @@ select:focus {
 }
 
 .wrapper .container {
-    background-color: #fff;
+    background-color: #ffffffd0;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 30px 20px; /* Padding inside each container */
     flex: 1; /* Equal width for both containers */
@@ -296,11 +298,13 @@ label {
 /* Select and Textarea */
 select, textarea {
     width: 100%; /* Use full width of the container */
+    height: 300px;
     padding: 12px;
     border-radius: 5px;
     border: 1px solid #ddd;
     font-size: 1rem;
     transition: border-color 0.2s;
+    background-color: #f9f9f9d0;
 }
 
 select:focus, textarea:focus {
@@ -320,7 +324,7 @@ textarea {
     width: 100%; /* Full width of the container */
     height: calc(100% - 80px); /* Adjust height, leaving space for buttons */
     overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
-    background-color: #e8f0fe; /* Light background for readability */
+    background-color: #f9f9f9d0; /* Light background for readability */
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;

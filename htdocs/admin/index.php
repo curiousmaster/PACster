@@ -287,7 +287,7 @@ document.getElementById("downloadResultsButton").addEventListener("click", downl
     border: 1px solid #ddd; /* Border for the box */
     border-radius: 5px; /* Rounded corners */
     padding: 10px; /* Padding inside the box */
-    background-color: #f9f9f9; /* Light background for readability */
+    background-color: #f9f9f9d0; /* Light background for readability */
 }
 
 /* Add CSS for results table */
