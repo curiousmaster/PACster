@@ -16,7 +16,7 @@
 
 <header>
     <div class="navbar">
-        <h2>PAC Tester</h2>
+        <h2>PACster</h2>
         <nav>
             <ul>
                 <li><a href="index.php">Home</a></li> <!-- Redirect to index.php -->
