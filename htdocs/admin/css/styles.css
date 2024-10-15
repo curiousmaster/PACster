@@ -669,3 +669,15 @@ table tbody tr:last-child td {
 .last-commit-info td, .last-commit-info th {
     text-decoration: none; /* Prevent underline or other default styles */
 }
+
+/* Add this to your existing CSS file */
+
+.error-message {
+    color: red; /* Text color for the error message */
+    text-align: center; /* Center the text */
+}
+
+/* Optional: Hide the message when it's empty */
+.error-message:empty {
+    display: none; /* Hide the element if there's no content */
+}

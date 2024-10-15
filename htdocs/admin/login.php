@@ -5,6 +5,9 @@ if (isset($_SESSION['username'])) {
     header('Location: index.php');
     exit();
 }
+
+// Check for error message
+$error_message = isset($_GET['error']) ? $_GET['error'] : '';
 ?>
 
 <!DOCTYPE html>
@@ -12,12 +15,17 @@ if (isset($_SESSION['username'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - PAC Test Tool</title>
+    <title>Login - PACster</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="login-container">
-        <h2>Login to PAC Test Tool</h2>
+        <h2>PACster: Login</h2>
+
+        <?php $error_message = $error_message ?? ' '; ?>
+        <div class="error-message"><?php echo htmlspecialchars($error_message); ?></div> <!-- Error message div -->
+        <br>
+
         <form action="login_handler.php" method="POST">
             <div class="form-group">
                 <label for="username">Username:</label>

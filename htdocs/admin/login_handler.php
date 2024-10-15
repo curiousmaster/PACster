@@ -7,13 +7,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     if (empty($username) || empty($password)) {
-        die('Username and password are required.');
+        $_SESSION['error'] = 'Username and password are required.';
+        header('Location: login.php');
+        exit();
     }
 
     // Connect to the database
     $db = connectDB();
     if (!$db) {
-        die('Failed to connect to the database');
+        $_SESSION['error'] = 'Failed to connect to the database';
+        header('Location: login.php');
+        exit();
     }
 
     // Check if the user exists in the database
@@ -33,7 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: index.php');
         exit();
     } else {
-        echo "Invalid username or password.";
+        //$_SESSION['error'] = 'Invalid username or password.';
+        header('Location: login.php?error=Invalid username or password');
+        exit();
     }
 }
 ?>
