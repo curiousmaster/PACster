@@ -306,6 +306,7 @@ select, textarea {
     font-size: 1rem;
     transition: border-color 0.2s;
     background-color: #f9f9f9d0;
+    resize: vertical;
 }
 
 select:focus, textarea:focus {
