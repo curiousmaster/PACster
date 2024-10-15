@@ -3,25 +3,29 @@
 
 session_start(); // Start the session
 
-// Check if the user is logged in and has admin role
-if ($_SESSION['role'] !== 'admin') {
-    header('Location: index.php?error=access_denied');
-    exit();
-}
-
 // Include the configuration file
 include 'config.php';
 
 // Connect to the database
 $db = connectDB();
 
-// Check if an ID is provided
-if (!isset($_GET['id'])) {
-    header('Location: admin.php'); // Redirect if no ID
+// Check if the user is logged in
+if (!isset($_SESSION['username'])) {
+    header('Location: login.php');
     exit();
 }
 
-$userId = $_GET['id'];
+// Determine the user ID to edit
+$userId = isset($_GET['id']) ? $_GET['id'] : $_SESSION['id'];
+
+// Check if the user is an admin
+$isAdmin = (isset($_SESSION['role']) && $_SESSION['role'] === 'admin');
+
+// If the user is normal, they should only be able to edit themselves
+if (!$isAdmin && $userId != $_SESSION['id']) {
+    header('Location: index.php?error=access_denied');
+    exit();
+}
 
 // Fetch the user details from the database
 $query = "SELECT * FROM users WHERE id = :id";
@@ -32,7 +36,7 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Check if the user exists
 if (!$user) {
-    header('Location: admin.php'); // Redirect if user not found
+    header('Location: index.php'); // Redirect if user not found
     exit();
 }
 
@@ -49,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $updateStmt->execute();
 
         // Redirect after successful update
-        header('Location: admin.php?success=user_updated');
+        header('Location: index.php?success=user_updated');
         exit();
     }
 }
@@ -85,7 +89,7 @@ include 'header.php';
 
             <div class="form-group">
                 <input type="submit" value="Update Password" class="submit-btn">
-                <a href="admin.php" class="cancel-btn">Cancel</a> <!-- Cancel button -->
+                <a href="index.php" class="cancel-btn">Cancel</a> <!-- Cancel button -->
             </div>
         </form>
     </div>

@@ -23,6 +23,7 @@
                 <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                     <li><a href="admin.php">Manage Users</a></li> <!-- Labeled Manage Users, shown only for admin -->
                 <?php endif; ?>
+                <li><a href="edit_user.php">Account</a></li> <!-- Account button for changing password -->
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>

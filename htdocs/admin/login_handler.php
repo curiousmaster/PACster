@@ -27,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Set session variables
         $_SESSION['username'] = $user['username'];
         $_SESSION['role'] = $user['role']; // Ensure role is correctly set
+        $_SESSION['id'] = $user['id']; // Set user ID in session
 
         // Redirect to index (pactest) page
         header('Location: index.php');
