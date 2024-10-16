@@ -62,12 +62,22 @@ require_once 'header.php';
 ?>
 
 <script>
+    let errorMessages = []; // Array to collect error messages
+
     // Clear the results div
     function initResults() {
         const resultsDiv = document.getElementById("resultsDiv");
         let str = "<table class='results-table'><thead><tr><th>PAC File</th><th>URL</th><th>Host</th><th>Route</th></tr></thead><tbody></tbody>"; // Reset the results
         resultsDiv.innerHTML = str;
     }
+
+    // Function to close the modal by clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById("errorModal");
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
 </script>
 
 <div class="content">
@@ -107,11 +117,9 @@ require_once 'header.php';
             </form>
 
             <!-- Commit Info Section Moved to Bottom -->
-            <div class="last-commit-info" id="lastCommitInfo" style="margin-top: auto; display: none;"> <!-- Initially hidden -->
+            <div class="last-commit-info" id="lastCommitInfo" style="margin-top: auto; display: none;">
                 <strong>Information:</strong>
-                <div id="commitInfo"><?php
-                        echo $lastCommitInfo;
-                ?></div>
+                <div id="commitInfo"><?php echo $lastCommitInfo; ?></div>
             </div>
         </div>
 
@@ -123,6 +131,15 @@ require_once 'header.php';
             <!-- Button to download results as CSV -->
             <div style="text-align: center; margin-top: 10px;">
                 <button id="downloadResultsButton" class="submit-btn">Download CSV</button>
+            </div>
+        </div>
+
+        <!-- Modal for displaying errors -->
+        <div id="errorModal" class="modal">
+            <div class="modal-content" style="background-color: rgba(254,187,187,0.9);">
+                <h4>Error Summary</h4>
+                <div id="modal-content"></div>
+                <button onclick="document.getElementById('errorModal').style.display='none'">Close</button>
             </div>
         </div>
 
@@ -178,7 +195,8 @@ function loadFile() {
                     getLastCommitInfo(file);
                 })
                 .catch(error => {
-                    console.error("Error loading PAC file:", error);
+                    console.error(`Error loading PAC file: ${file}`, error);
+                    errorMessages.push(`Error loading PAC file: ${file} - ${error.message}`); // Store the error
                 });
         });
     }
@@ -202,12 +220,14 @@ function getLastCommitInfo(filePath) {
  */
 function testURL() {
     let resultsDiv = document.getElementById("resultsDiv");
+    let errorModalContent = document.getElementById("modal-content");
 
     var tabdef = ""; // Title for results
     tabdef += "<table class='results-table'><thead><tr><th>PAC File</th><th>URL</th><th>Host</th><th>Route</th></tr></thead><tbody>"; // Table headers
 
     // Clear previous results
     testResults = [];
+    errorMessages = []; // Reset the errorMessages array
 
     // Get the URLs from the input textarea
     let urlList = document.getElementById("idURL").value.split("\n");
@@ -232,11 +252,12 @@ function testURL() {
                         let host = getHost(trimmedUrl);
                         if (host === "") {
                             // Handle invalid URL
-                            tabdef += '<tr><td>' + pacFile + '</td><td>' + trimmedUrl + '</td><td>Invalid URL</td><td><i>Invalid URL</i></td></tr>';
+                            tabdef += `<tr><td>${pacFile}</td><td>${trimmedUrl}</td><td>Invalid URL</td><td><i>Invalid URL</i></td></tr>`;
                         } else {
                             // Determine the proxy route using the current PAC file's function
                             let route = pacFunction(trimmedUrl, host);
-                            tabdef += '<tr><td>' + pacFile + '</td><td>' + trimmedUrl + '</td><td>' + host + '</td><td>' + route + '</td></tr>';
+
+                            tabdef += `<tr><td>${pacFile}</td><td>${trimmedUrl}</td><td>${host}</td><td>${route}</td></tr>`;
 
                             // Save result to testResults array
                             testResults.push({ pacFile: pacFile, url: trimmedUrl, host: host, route: route });
@@ -248,7 +269,15 @@ function testURL() {
                 resultsDiv.innerHTML = tabdef + "</tbody></table>"; // Closing tags for the table
             })
             .catch(error => {
-                console.error("Error loading PAC file:", error);
+                console.error(`Error loading PAC file: ${pacFile}`, error);
+                errorMessages.push(`Error loading PAC file: ${pacFile} - ${error.message}`); // Store the error
+            })
+            .finally(() => {
+                // Once all PAC files are tested, show errors if any
+                if (errorMessages.length > 0) {
+                    errorModalContent.innerHTML = errorMessages.join('<br>'); // Display all errors
+                    document.getElementById("errorModal").style.display = "block"; // Show the modal
+                }
             });
     });
 
@@ -309,5 +338,42 @@ document.getElementById("downloadResultsButton").addEventListener("click", downl
 
 .results-table tbody tr:hover {
     background-color: #f1f1f1; /* Highlight on hover */
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+.modal-content {
+    background-color: rgba(254,187,187,0.9); /* Light red color */
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
 </style>
