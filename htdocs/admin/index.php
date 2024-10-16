@@ -57,7 +57,7 @@ function getLastCommitInfo($filePath) {
 $lastCommitInfo = getLastCommitInfo(basename($templatePath)); // Use basename to remove path details
 
 // Define the title and include the header
-$title = "PAC Test Tool";
+$title = "PACster";
 require_once 'header.php';
 ?>
 
