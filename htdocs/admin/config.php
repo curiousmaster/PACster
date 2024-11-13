@@ -1,16 +1,8 @@
 <?php
-<<<<<<< HEAD
-define('COMPANY_NAME','<CHANGEME>');
-=======
 define('COMPANY_NAME','<CHANGEME>'); // Company branding
->>>>>>> ee809491094fb27c6afc4155659afd72810bdfaa
 
 // Initial Configuration for PAC File Tester
-<<<<<<< HEAD
-$baseURL = '<URL_TO_PACFILES>'; // Url to P
-=======
 $baseURL = '<CHANGEME>'; // URL to pacfiles
->>>>>>> ee809491094fb27c6afc4155659afd72810bdfaa
 
 // Path to the SQLite3 database file
 define('DB_PATH', '<CHANGEME>/users.db'); // Full path to users.db
